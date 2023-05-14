@@ -11,20 +11,25 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 echo 'building stage'
-                
+                sh 'docker build -t data-secure-app-image:1.0.0-prod'
             }
         }
 
-        stage("Test") {
+        stage("Login to DockerHub") {
             steps {
-                echo 'testing stage'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
-        stage("Deploy") {
+        stage("Push Image to DockerHub") {
             steps {
-                echo 'deploying stage'
+                sh 'docker push react-demo/data-secure-app-image:1.0.0-prod'
             }
+        }
+    }
+    post {
+        always {
+            sh 'docker logout'
         }
     }
 }
