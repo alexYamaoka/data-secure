@@ -6,7 +6,7 @@ pipeline {
 
     tools {
         nodejs 'node_18.16.0'
-        dockrt 'docker'
+        docker 'docker'
     }
 
     stages {
