@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile true
+    }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('DockerHub')
     }
@@ -12,6 +14,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh 'node --version'
+                sh 'svn --version'
                 sh 'echo build section'
             }
         }
