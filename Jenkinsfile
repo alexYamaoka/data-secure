@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        dockerfile true
-    }
+    agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('DockerHub')
     }
@@ -9,17 +7,20 @@ pipeline {
     tools {
         nodejs 'node_18.16.0'
     }
-
     stages {
-        stage("Build") {
+        stage("Build Docker Image") {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
-                sh 'echo build section'
+                echo 'building stage'
+                
             }
         }
-        
+
+        stage("Login to DockerHub") {
+            steps {
+                sh 'echo login to dockerhub stage'
+            }
+        }
+
         
     }
-    
 }
