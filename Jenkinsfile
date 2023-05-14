@@ -17,7 +17,8 @@ pipeline {
 
         stage("Login to DockerHub") {
             steps {
-                sh 'echo login to dockerhub stage'
+                echo 'login to dockerhub stage'
+                echo DOCKERHUB_CREDENTIALS.USR
             }
         }
 
