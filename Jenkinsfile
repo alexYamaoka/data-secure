@@ -6,13 +6,11 @@ pipeline {
 
     tools {
         nodejs 'node_18.16.0'
+        dockrt 'docker'
     }
 
     stages {
-        stage("Initialize Docker") {
-            def dockerHome = tool 'docker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
+        
         // stage("Build Docker Image") {
         //     steps {
         //         echo 'building stage'
