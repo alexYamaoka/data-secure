@@ -8,12 +8,12 @@ pipeline {
         nodejs 'node_18.16.0'
     }
     stages {
-        stage("Build Docker Image") {
-            steps {
-                echo 'building stage'
-                sh 'docker build -t data-secure-app-image:1.0.0-prod'
-            }
-        }
+        // stage("Build Docker Image") {
+        //     steps {
+        //         echo 'building stage'
+        //         sh 'docker build -t data-secure-app-image:1.0.0-prod'
+        //     }
+        // }
 
         stage("Login to DockerHub") {
             steps {
@@ -21,11 +21,11 @@ pipeline {
             }
         }
 
-        stage("Push Image to DockerHub") {
-            steps {
-                sh 'docker push react-demo/data-secure-app-image:1.0.0-prod'
-            }
-        }
+        // stage("Push Image to DockerHub") {
+        //     steps {
+        //         sh 'docker push react-demo/data-secure-app-image:1.0.0-prod'
+        //     }
+        // }
     }
     post {
         always {
