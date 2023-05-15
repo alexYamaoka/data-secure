@@ -18,7 +18,7 @@ pipeline {
         stage("Login to DockerHub") {
             steps {
                 echo 'login to dockerhub stage'
-                echo $DOCKERHUB_CREDENTIALS_psw
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
             }
         }
 
