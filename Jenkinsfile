@@ -18,10 +18,15 @@ pipeline {
         stage("Login to DockerHub") {
             steps {
                 echo 'login to dockerhub stage'
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
         
+    }
+    post {
+        always {
+            sh 'docker logout'
+        }
     }
 }
