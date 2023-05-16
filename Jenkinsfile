@@ -1,17 +1,15 @@
 pipeline {
-    //  agent {
-    //     label 'jenkins_agent'
-    // }
-    agent any
+     agent {
+        label 'jenkins_agent'
+    }
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
 
-    tools {
-        nodejs 'node_18.16.0'
-        docker 'docker_lts'
-    }
+    // tools {
+    //     nodejs 'node_18.16.0'
+    // }
     
     stages {
         stage("Build Docker Image") {
@@ -25,7 +23,7 @@ pipeline {
         stage("Login to DockerHub") {
             steps {
                 echo 'login to dockerhub stage'
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                //sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
