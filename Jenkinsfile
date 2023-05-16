@@ -16,8 +16,9 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 echo 'building stage'
-                //sh 'docker build -t react-docker-app:1.0.0-prod .'
+                sh 'docker build -t react-docker-app:1.0.0-prod .'
                 sh 'docker ps'
+                sh 'docker images'
             }
         }
 
