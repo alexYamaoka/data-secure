@@ -1,7 +1,8 @@
 pipeline {
-     agent {
-        label 'jenkins_agent'
-    }
+    //  agent {
+    //     label 'jenkins_agent'
+    // }
+    agent any
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
