@@ -15,6 +15,7 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 echo 'building stage'
+                sh 'docker build -t react-docker-app:1.0.0-prod .'
                 
             }
         }
@@ -24,6 +25,10 @@ pipeline {
                 echo 'login to dockerhub stage'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
+        }
+
+        stage("Push Image to DockerHub"){
+            echo 'push image to dockerhub stage'
         }
 
         
