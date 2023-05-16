@@ -8,9 +8,10 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
 
-    // tools {
-    //     nodejs 'node_18.16.0'
-    // }
+    tools {
+        nodejs 'node_18.16.0'
+        docker 'docker_lts'
+    }
     
     stages {
         stage("Build Docker Image") {
