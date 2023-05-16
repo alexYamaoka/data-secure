@@ -33,7 +33,7 @@ pipeline {
         stage("Push Image to DockerHub") {
             steps {
                 echo 'push image to dockerhub stage'
-                sh 'docker push ryamaoka/ryamaoka/react-docker-app:1.0.0-prod'
+                sh 'docker push ryamaoka/react-docker-app:1.0.0-prod'
 
             }
         }
