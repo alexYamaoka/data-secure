@@ -3,9 +3,9 @@ pipeline {
         label 'jenkins_agent'
     }
 
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-    }
+    // environment {
+    //     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    // }
 
     // tools {
     //     nodejs 'node_18.16.0'
