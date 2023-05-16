@@ -3,9 +3,9 @@ pipeline {
         label 'jenkins_agent'
     }
 
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('DockerHub')
-    }
+    // environment {
+    //     DOCKERHUB_CREDENTIALS = credentials('DockerHub')
+    // }
 
     // tools {
     //     nodejs 'node_18.16.0'
@@ -28,9 +28,9 @@ pipeline {
 
         
     }
-    post {
-        always {
-            sh 'docker logout'
-        }
-    }
+    // post {
+    //     always {
+    //         sh 'docker logout'
+    //     }
+    // }
 }
