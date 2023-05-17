@@ -1,9 +1,7 @@
 pipeline {
-    //agent any
      agent {
         label 'jenkins_agent'
     }
-
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
@@ -16,7 +14,7 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 echo 'building stage'
-                sh 'docker build -t ryamaoka/react-docker-app:1.0.0-prod .'
+                sh 'docker build -t ryamaoka/react-docker-app:1.0.1-prod .'
                 sh 'docker ps'
                 sh 'docker images'
             }
@@ -33,7 +31,7 @@ pipeline {
         stage("Push Image to DockerHub") {
             steps {
                 echo 'push image to dockerhub stage'
-                sh 'docker push ryamaoka/react-docker-app:1.0.0-prod'
+                sh 'docker push ryamaoka/react-docker-app:1.0.1-prod'
 
             }
         }
